@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Form</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Translate Text</h1>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <!-- Text to Translate as Textarea -->
+            <div>
+                <label for="translate" class="block text-sm font-medium text-gray-700">Text to translate</label>
+                <textarea id="translate" name="translate" rows="4" required
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            </div>
+
+            <!-- Select Language -->
+            <div>
+                <label for="language" class="block text-sm font-medium text-gray-700">Select language</label>
+                <select name="language" id="language" required
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="fr">French</option>
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="de">Germain</option>
+                </select>
+            </div>
+
+            <!-- Translated Text -->
+            <div>
+                <label for="translated_text" class="block text-sm font-medium text-gray-700">Translated Text</label>
+                <textarea id="translated_text" name="translated_text" rows="4" readonly
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-gray-100 focus:ring-indigo-500 focus:border-indigo-500">{{ result }}</textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+                <button type="submit"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Translate</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
