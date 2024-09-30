@@ -31,3 +31,4 @@
         <pre><code>python manage.py runserver</code></pre>
     </li>
     <li><strong>Access the application</strong> at <a href="http://127.0.0.1:8000">http://127.0.0.1:8000
+<img src="scrn.png" alt="Screenshot">
